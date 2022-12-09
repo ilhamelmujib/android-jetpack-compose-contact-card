@@ -81,25 +81,25 @@ fun Arrangement() {
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            MyButton("A")
-            MyButton("B")
-            MyButton("C")
+            MyButton("A", Modifier.width(60.dp))
+            MyButton("B", Modifier.width(60.dp))
+            MyButton("C", Modifier.width(60.dp))
         }
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceAround
         ) {
-            MyButton("A")
-            MyButton("B")
-            MyButton("C")
+            MyButton("A", Modifier.width(60.dp))
+            MyButton("B", Modifier.width(60.dp))
+            MyButton("C", Modifier.width(60.dp))
         }
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            MyButton("A")
-            MyButton("B")
-            MyButton("C")
+            MyButton("A", Modifier.width(60.dp))
+            MyButton("B", Modifier.width(60.dp))
+            MyButton("C", Modifier.width(60.dp))
         }
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -136,7 +136,7 @@ fun AlignmentColumn() {
                 .padding(10.dp),
             horizontalAlignment = Alignment.Start
         ) {
-            Buttons()
+            ManyButton()
         }
         Column(
             modifier = Modifier
@@ -144,7 +144,7 @@ fun AlignmentColumn() {
             horizontalAlignment = Alignment.CenterHorizontally
 
         ) {
-            Buttons()
+            ManyButton()
         }
         Column(
             modifier = Modifier
@@ -152,7 +152,7 @@ fun AlignmentColumn() {
             horizontalAlignment = Alignment.End
 
         ) {
-            Buttons()
+            ManyButton()
         }
     }
 }
@@ -167,7 +167,7 @@ fun AlignmentRow() {
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.Top
         ) {
-            Buttons()
+            ManyButton()
         }
         Row(
             modifier = Modifier
@@ -176,7 +176,7 @@ fun AlignmentRow() {
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Buttons()
+            ManyButton()
         }
         Row(
             modifier = Modifier
@@ -185,14 +185,65 @@ fun AlignmentRow() {
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.Bottom
         ) {
-            Buttons()
+            ManyButton()
         }
     }
 }
 
 @Composable
 fun AlignmentBox() {
-    
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.TopStart) {
+        MyButton(text = "Top Start")
+    }
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.TopCenter) {
+        MyButton(text = "Top Center")
+    }
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.TopEnd) {
+        MyButton(text = "Top End")
+    }
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.CenterStart) {
+        MyButton(text = "Center Start")
+    }
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        MyButton(text = "Center")
+    }
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.CenterEnd) {
+        MyButton(text = "Center End")
+    }
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.BottomStart) {
+        MyButton(text = "Bottom Start")
+    }
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.BottomCenter) {
+        MyButton(text = "Bottom Center")
+    }
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.BottomEnd) {
+        MyButton(text = "Bottom End")
+    }
+}
+
+@Composable
+fun Weight() {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp)
+    ) {
+        Row {
+            MyButton(text = "1", Modifier.weight(1f))
+            MyButton(text = "1", Modifier.weight(1f))
+            MyButton(text = "1", Modifier.weight(1f))
+        }
+        Row {
+            MyButton(text = "1", Modifier.weight(1f))
+            MyButton(text = "2", Modifier.weight(2f))
+            MyButton(text = "1", Modifier.weight(1f))
+        }
+        Row {
+            MyButton(text = "1", Modifier.weight(1f))
+            MyButton(text = "2", Modifier.weight(2f))
+            MyButton(text = "3", Modifier.weight(3f))
+        }
+    }
 }
 
 @Preview(showBackground = true)
@@ -227,39 +278,47 @@ fun AlignmentRowPreview() {
     }
 }
 
+@Preview
 @Composable
-fun MyButton(text: String) {
+fun AlignmentBoxPreview() {
+    ContactCardTheme {
+        AlignmentBox()
+    }
+}
+
+@Preview
+@Composable
+fun WeightPreview() {
+    ContactCardTheme {
+        Weight()
+    }
+}
+
+@Composable
+fun MyButton(text: String, modifier: Modifier = Modifier) {
     Button(
         onClick = { /*TODO*/ },
-        modifier = Modifier
-            .width(70.dp)
-            .padding(8.dp)
+        modifier = modifier.padding(8.dp)
     ) {
         Text(text)
     }
 }
 
 @Composable
-fun Buttons() {
-    Button(
-        onClick = { /*TODO*/ }, modifier = Modifier
+fun ManyButton() {
+    MyButton(
+        text = "A", modifier = Modifier
             .width(100.dp)
             .height(100.dp)
-    ) {
-        Text("A")
-    }
-    Button(
-        onClick = { /*TODO*/ }, modifier = Modifier
+    )
+    MyButton(
+        text = "B", modifier = Modifier
             .width(80.dp)
             .height(80.dp)
-    ) {
-        Text("B")
-    }
-    Button(
-        onClick = { /*TODO*/ }, modifier = Modifier
+    )
+    MyButton(
+        text = "C", modifier = Modifier
             .width(60.dp)
             .height(60.dp)
-    ) {
-        Text("C")
-    }
+    )
 }
