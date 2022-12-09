@@ -243,6 +243,11 @@ fun Weight() {
             MyButton(text = "2", Modifier.weight(2f))
             MyButton(text = "3", Modifier.weight(3f))
         }
+        Row {
+            MyButton(text = "1", Modifier.weight(1f))
+            MyButton(text = "2", Modifier.weight(2f))
+            MyButton(text = "3 fill false", Modifier.weight(3f, fill = false))
+        }
     }
 }
 
