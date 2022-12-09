@@ -1,1 +1,1 @@
-# android-jetpack-compose-contact-card
+# Simple app for learning Layout Arrangement, Alignment & Weight
