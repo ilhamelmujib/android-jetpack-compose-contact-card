@@ -192,32 +192,20 @@ fun AlignmentRow() {
 
 @Composable
 fun AlignmentBox() {
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.TopStart) {
-        MyButton(text = "Top Start")
-    }
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.TopCenter) {
-        MyButton(text = "Top Center")
-    }
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.TopEnd) {
-        MyButton(text = "Top End")
-    }
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.CenterStart) {
-        MyButton(text = "Center Start")
-    }
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        MyButton(text = "Center")
-    }
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.CenterEnd) {
-        MyButton(text = "Center End")
-    }
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.BottomStart) {
-        MyButton(text = "Bottom Start")
-    }
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.BottomCenter) {
-        MyButton(text = "Bottom Center")
-    }
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.BottomEnd) {
-        MyButton(text = "Bottom End")
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
+        MyButton(text = "Top Start", Modifier.align(Alignment.TopStart))
+        MyButton(text = "Top Center", Modifier.align(Alignment.TopCenter))
+        MyButton(text = "Top End", Modifier.align(Alignment.TopEnd))
+        MyButton(text = "Center Start", Modifier.align(Alignment.CenterStart))
+        MyButton(text = "Center", Modifier.align(Alignment.Center))
+        MyButton(text = "Center End", Modifier.align(Alignment.CenterEnd))
+        MyButton(text = "Bottom Start", Modifier.align(Alignment.BottomStart))
+        MyButton(text = "Bottom Center", Modifier.align(Alignment.BottomCenter))
+        MyButton(text = "Bottom End", Modifier.align(Alignment.BottomEnd))
     }
 }
 
